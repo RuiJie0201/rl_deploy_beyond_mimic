@@ -106,7 +106,11 @@ class MuJoCoSimulation:
         self.viewer = None
         if USE_VIEWER:
             self.viewer = mujoco.viewer.launch_passive(self.model, self.data)
-
+        # Set camera position and orientation
+        self.viewer.cam.distance = 3.0
+        self.viewer.cam.lookat = [0.0, 0.0, 0.8]
+        self.viewer.cam.azimuth = 45.0
+        self.viewer.cam.elevation = -30.0
 
         # self.shm_phase = shared_memory.SharedMemory(name="phase")  # 连接已有共享内存//确保他们的生存周期为整个进程，防止被回收
         # self.shm_pos = shared_memory.SharedMemory(name="init_pos")  # 连接已有共享内存
