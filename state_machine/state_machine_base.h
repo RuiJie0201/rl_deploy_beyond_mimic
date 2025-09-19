@@ -110,7 +110,7 @@ public:
         logger_temp("Temp"), logger_pos("Pos"), logger_vel("Vel"), logger_error("Error"),
         logger_torq("Torq"), logger_imu("Imu"), logger_bat("Bat"), logger_stat("Stat")
     {
-        DrLogger::initialize("CR1", "../log/", "/home/ysc/rl_deploy/conf/log.properties");
+        // DrLogger::initialize("CR1", "../log/", "/home/ysc/rl_deploy/conf/log.properties");
         // MotionDataReport mdr;
     }
     virtual ~StateMachineBase(){}

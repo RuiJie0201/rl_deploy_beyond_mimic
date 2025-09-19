@@ -4,9 +4,12 @@
 
 ```bash
 
+sudo apt update
+sudo apt install g++-aarch64-linux-gnu
+sudo apt install gcc-aarch64-linux-gnu
+
 mkdir build && cd build
-cmake .. -DBUILD_PLATFORM=arm -DSEND_REMOTE=ON 
-cmake .. -DBUILD_PLATFORM=x86 -DSEND_REMOTE=OFF
+cmake .. -DBUILD_PLATFORM=arm -DSEND_REMOTE=OFF -DBUILD_SIM=OFF
 cmake .. -DBUILD_PLATFORM=x86 -DSEND_REMOTE=OFF -DBUILD_SIM=ON
 
 make -j 

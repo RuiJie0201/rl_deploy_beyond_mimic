@@ -22,11 +22,7 @@ if (SEND_REMOTE)
     set(BUILD_SIM OFF)
 endif ()
 
-if (BUILD_SIM)
-# 全局定义宏（对所有目标生效）
-# add_definitions(-DSIMULATION_MODE)
-add_definitions(-DSIMULATION_MODE=1)
-endif()
+
 
 message("BUILD_PLATFORM: ${BUILD_PLATFORM}")
 message("BUILD_SIM:      ${BUILD_SIM}")
@@ -135,6 +131,11 @@ if (BUILD_SIM)
     message("build simulation")
     #  target_link_libraries(rl_deploy raisim::raisim)
 endif ()
+if (BUILD_SIM)
+# 全局定义宏（对所有目标生效）
+# add_definitions(-DSIMULATION_MODE)
+    target_compile_definitions(rl_deploy PRIVATE SIMULATION_MODE)
+endif()
 
  set(CMAKE_EXE_LINKER_FLAGS "-Wl,--disable-new-dtags")
  set(CMAKE_BUILD_WITH_INSTALL_RPATH TRUE)
@@ -151,7 +152,7 @@ if (SEND_REMOTE)
     add_custom_target(push_to_robot ALL DEPENDS rl_deploy)
     add_custom_command(
             TARGET push_to_robot POST_BUILD
-            COMMAND ./scripts/sftp_to_remote.sh
+            COMMAND /home/percy/rl_deploy_beyond_mimic/scripts/sftp_to_remote.sh
             WORKING_DIRECTORY ..
             COMMENT "run sftp_to_remote.sh"
     )

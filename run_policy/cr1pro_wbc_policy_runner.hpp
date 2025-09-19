@@ -167,7 +167,7 @@ public:
         input_shape_timestep = {1,1};
         //dummy obs ,test the model is right
 
-        std::cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"<<std::endl;
+        // std::cout<<"!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!"<<std::endl;
         for(int i = 0; i < 10; ++i)
         {   
             
@@ -212,7 +212,7 @@ public:
     policyandpd2robot_idx = generate_permutation(policy_and_pd_order, robot_order);
     
     // motion file 读取与解析
-    if (!loader.load("/home/ubuntu/rl_deploy_for_Cr1-beyondmimic/policy/huixuanti_slow2.json")) {
+    if (!loader.load("../json_data/yongchun_zhaoshi.json")) {
             std::cerr<<"no data file"<<std::endl;
      }
      else{
@@ -373,7 +373,7 @@ public:
             exit(0);
         }
 
-        std::cout<<"action_"<<action_.transpose()<<std::endl;
+        // std::cout<<"action_"<<action_.transpose()<<std::endl;
         VecXf no_rl_joint_action = VecXf::Zero(dof_dim - act_dim_);
         action_all_rl << action_, no_rl_joint_action;//把输出为0的，放在后面
         
@@ -391,9 +391,9 @@ public:
         ra.goal_joint_vel.setZero();
         auto next_time = std::chrono::high_resolution_clock::now();
         #ifdef SIMULATION_MODE
-        ra.tau_ff(0) = 999;
+            ra.tau_ff(0) = 999;
         #endif
-        auto duration2 = std::chrono::duration_cast<std::chrono::microseconds>(next_time - this_time).count();
+            auto duration2 = std::chrono::duration_cast<std::chrono::microseconds>(next_time - this_time).count();
             // std::cout << std::fixed << std::setprecision(4)\
             //   << "infer Elapsed: " << duration2 << " us" << std::endl;
         return ra;

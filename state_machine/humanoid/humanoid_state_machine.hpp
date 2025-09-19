@@ -28,7 +28,6 @@
 #include "data_streaming.hpp"
 #include "safe_controller.hpp"
 #include "mimic_ready_state.hpp"
-#define SIMULATION_MODE
 namespace humanoid{
 class HumanoidStateMachine : public StateMachineBase{
 private:
@@ -85,7 +84,7 @@ public:
 
    
             #else
-                ri_ptr_ = std::make_shared<CR1_PRO_WBC_HardwareInterface>("CR1PRO");        
+                ri_ptr_ = std::make_shared<CR1HardwareInterface>("CR1PRO");        
                 cp_ptr_ = std::make_shared<ControlParameters>(robot_name_);
    
             #endif
@@ -107,6 +106,7 @@ public:
         sc_ptr_ = std::make_shared<SafeController>(HumanoidStandard, "");
         sc_ptr_->SetRobotDataSource(ri_ptr_);
         sc_ptr_->SetUserCommandDataSource(uc_ptr_);
+
 
         idle_controller_ = std::make_shared<IdleState>(robot_name_, "idle_state", data_ptr);
         test_controller_ = std::make_shared<TestState>(robot_name_, "test_state", data_ptr);

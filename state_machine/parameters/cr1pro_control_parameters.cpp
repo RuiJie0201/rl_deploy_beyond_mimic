@@ -133,8 +133,8 @@ void ControlParameters::GenerateCR1PROParameters(){//b样机只有臂，腰，�
     // default_joint_pos(27) = -0.23;
 
     // ELBOW
-    default_joint_pos(6) = 1.57;
-    default_joint_pos(13) = 1.57;
+    // default_joint_pos(6) = 1.57;
+    // default_joint_pos(13) = 1.57;
     
 
     // SHOULDER_X / Y
@@ -189,11 +189,11 @@ void ControlParameters::GenerateCR1PROParameters(){//b样机只有臂，腰，�
 
     neck_kp  <<0.,0.;
     neck_kd  <<0.,0.;
-    std::cout << "joint_kp:\n" << joint_kp.transpose() << std::endl;
-    std::cout << "waist_kd:\n" << waist_kd.transpose() << std::endl;
-    std::cout << "arm_kp:\n" << arm_kp.transpose() << std::endl;
-    std::cout << "leg_kp:\n" << leg_kp.transpose() << std::endl;
-    std::cout << "neck_kp:\n" << neck_kp.transpose() << std::endl;
+    // std::cout << "joint_kp:\n" << joint_kp.transpose() << std::endl;
+    // std::cout << "waist_kd:\n" << waist_kd.transpose() << std::endl;
+    // std::cout << "arm_kp:\n" << arm_kp.transpose() << std::endl;
+    // std::cout << "leg_kp:\n" << leg_kp.transpose() << std::endl;
+    // std::cout << "neck_kp:\n" << neck_kp.transpose() << std::endl;
     
 
     //this is for 恢复0位
@@ -218,7 +218,7 @@ void ControlParameters::GenerateCR1PROParameters(){//b样机只有臂，腰，�
 
     // common_policy_path_ = GetAbsPath()+"/../policy/model_35600.onnx";
     
-    common_policy_path_ = "/home/ubuntu/rl_deploy_for_Cr1-beyondmimic/policy/policy_huixuanti.onnx";
+    common_policy_path_ = "../policy/yongchun_zhaoshi.onnx";
 
 }
 

@@ -97,3 +97,9 @@ WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstabl
 Mon Aug 18 14:14:31 2025
 WARNING: Nan, Inf or huge value in CTRL at ACTUATOR 0. The simulation is unstable. Time = 12.5280.
 
+Tue Sep 16 09:09:49 2025
+ERROR: could not create window
+
+Tue Sep 16 09:10:02 2025
+ERROR: could not create window
+

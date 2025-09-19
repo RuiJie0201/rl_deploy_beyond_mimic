@@ -41,8 +41,6 @@ namespace interface {
             joint_vel_ = VecXf::Zero(dof_num_);
 
             joint_cmd_ = MatXf::Zero(dof_num_, 5);
-
-            std::cout << name << " is using PyBullet Simulation" << std::endl;
         }
 
         virtual double GetInterfaceTimeStamp() {

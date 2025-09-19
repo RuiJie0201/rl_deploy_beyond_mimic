@@ -1,4 +1,4 @@
-#!/usr/bin/expect
+#!/bin/bash
 #exit
 
 # set ip "192.168.2.1"
@@ -13,8 +13,8 @@
 # set username "ysc"
 # set passwd "'"
 
-# set ip "172.16.14.80"
 set ip "10.21.41.1"
+# set ip "192.168.1.131"
 set username "user"
 set passwd "'"
 
